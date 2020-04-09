@@ -5,6 +5,7 @@
 
 CFLAGS = -Wall -Werror -Wextra -pedantic
 SRC := src
+SRCHELPERS := $(SRC)/helpers
 HEADERSRC := $(SRC)/headers
 READSRC := $(SRC)/read
 READHELPERSRC := $(SRC)/read/helpers
@@ -17,7 +18,8 @@ BINARY := newShell
 
 # Make folders
 
-$(shell   mkdir -p $(BUILD)/read/helpers \
+$(shell   mkdir -p $(BUILD)/helpers \
+				   $(BUILD)/read/helpers \
 				   $(BUILD)/parse/helpers \
 				   $(BUILD)/execute/helpers \
 				   $(BUILD)/error/helpers \
@@ -30,6 +32,7 @@ all: newShell
 # define sources
 
 SOURCES := $(wildcard $(SRC)/*.c) \
+		   $(wildcard $(SRCHELPERS)/*.c) \
 		   $(wildcard $(READSRC)/*.c) \
 		   $(wildcard $(PARSESRC)/*.c) \
 		   $(wildcard $(EXECUTESRC)/*.c) \
